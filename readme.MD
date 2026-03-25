@@ -7,7 +7,7 @@
 ![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=node.js&logoColor=white)
 ![Electron Ready](https://img.shields.io/badge/Tray-Ready-blueviolet?style=flat-square)
 ![License](https://img.shields.io/badge/License-Custom%20Open%20Source-blue?style=flat-square)
-![Version](https://img.shields.io/badge/Version-1.0.0-green?style=flat-square)
+![Version](https://img.shields.io/badge/Version-1.1.0-green?style=flat-square)
 ![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=flat-square&logo=windows&logoColor=white)
 
 ---
@@ -47,7 +47,10 @@ On startup, WorldPing immediately fetches all data sources and sends notificatio
 
 ---
 
-## Features — v1.0.0
+## Features — v1.1.0
+
+### 🚀 Standalone Executable
+You no longer need to have Node.js installed to run WorldPing. You can generate a single `.exe` file that embeds everything (including notification binaries and icons) so you can run it anywhere silently!
 
 ### 📈 Financial Markets
 Real-time prices fetched via `yahoo-finance2` in a single API call:
@@ -92,6 +95,7 @@ Real-time prices fetched via `yahoo-finance2` in a single API call:
 
 ## Installation
 
+### Option 1: Run with Node.js
 ```bash
 # Clone the repository
 git clone https://github.com/Tellier-Neo/worldping.git
@@ -99,16 +103,32 @@ cd worldping
 
 # Install dependencies
 npm install
+
+# Start the service
+node index.js
 ```
+
+### Option 2: Build as Standalone Executable (Windows)
+If you want to run WorldPing without installing Node.js, you can build a `.exe` version using `pkg`:
+
+```bash
+# Compile to a standalone executable
+npm run build
+```
+Once this completes, a `WorldPing.exe` file will be generated in the `/dist` directory. You can run this executable anywhere.
 
 ---
 
 ## Usage
 
+If you use the source code:
 ```bash
-# Start the service
+npm start
+# or
 node index.js
 ```
+
+If you use the built executable, just double-click `dist/WorldPing.exe` or run it from the command line.
 
 WorldPing will immediately fetch all data and send your first notifications.
 It will then refresh automatically every hour.
@@ -124,6 +144,7 @@ To stop the service, press `Ctrl+C` in the terminal.
 | [`yahoo-finance2`](https://github.com/gadicc/node-yahoo-finance2) | Financial market prices |
 | [`rss-parser`](https://github.com/rbren/rss-parser) | RSS feed parsing (news) |
 | [`node-notifier`](https://github.com/mikaelbr/node-notifier) | Windows desktop notifications |
+| [`pkg`](https://github.com/vercel/pkg) | Compiling to standalone executable |
 
 ---
 
