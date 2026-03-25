@@ -50,7 +50,7 @@ On startup, WorldPing immediately fetches all data sources and sends notificatio
 ## Features — v1.1.0
 
 ### 🚀 Standalone Executable
-You no longer need to have Node.js installed to run WorldPing as a user. We compile the code into a native `.exe` using Node.js Single Executable Applications (SEA). You just need to run the generated `WorldPing.exe` located in the `/dist` directory (along with the provided `/notifier` folder and icon).
+You no longer need to have Node.js installed to run WorldPing as a user. We compile the code into a native `.exe` using Node.js Single Executable Applications (SEA). You just need to run the generated `WorldPing.exe` located in the `/dist` directory (along with the provided `/vendor` folder and icon).
 
 ### 📈 Financial Markets
 Real-time prices fetched via `yahoo-finance2` in a single API call:
@@ -117,7 +117,7 @@ npm run build
 ```
 Once this completes, a `WorldPing.exe` file will be generated in the `/dist` directory. 
 
-> **Important:** To distribute the compiled version, you must copy the entire `/dist` folder. It contains the `.exe`, the icon, and the `/notifier` folder required by Windows to trigger notifications.
+> **Important:** To distribute the compiled version, you must copy the entire `/dist` folder. It contains the `.exe`, the icon, and the `/vendor` folder required by Windows to trigger notifications.
 
 ---
 

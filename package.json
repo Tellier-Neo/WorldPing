@@ -6,7 +6,7 @@
   "bin": "index.js",
   "scripts": {
     "test": "test",
-    "build": "npx esbuild index.js --bundle --platform=node --outfile=dist/bundle.js && node --experimental-sea-config sea-config.json && node -e \"require('fs').copyFileSync(process.execPath, 'dist/WorldPing.exe')\" && npx postject dist/WorldPing.exe NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 && copyfiles -u 2 node_modules/node-notifier/vendor/**/* dist/notifier/ && node -e \"require('fs').copyFileSync('worldping.ico', 'dist/worldping.ico')\""
+    "build": "npx esbuild index.js --bundle --platform=node --outfile=dist/bundle.js && node --experimental-sea-config sea-config.json && node -e \"require('fs').copyFileSync(process.execPath, 'dist/WorldPing.exe')\" && npx postject dist/WorldPing.exe NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 && copyfiles -u 2 node_modules/node-notifier/vendor/**/* dist/ && node -e \"require('fs').copyFileSync('worldping.ico', 'dist/worldping.ico')\""
   },
   "pkg": {
     "assets": [
