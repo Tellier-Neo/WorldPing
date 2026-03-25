@@ -6,7 +6,7 @@
   "bin": "index.js",
   "scripts": {
     "test": "test",
-    "build": "pkg . --targets node18-win-x64 --output dist/WorldPing.exe && copyfiles -u 2 node_modules/node-notifier/vendor/**/* dist/notifier/"
+    "build": "npx esbuild index.js --bundle --platform=node --outfile=dist/bundle.js && node --experimental-sea-config sea-config.json && node -e \"require('fs').copyFileSync(process.execPath, 'dist/WorldPing.exe')\" && npx postject dist/WorldPing.exe NODE_SEA_BLOB sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 && copyfiles -u 2 node_modules/node-notifier/vendor/**/* dist/notifier/ && node -e \"require('fs').copyFileSync('worldping.ico', 'dist/worldping.ico')\""
   },
   "pkg": {
     "assets": [
@@ -33,7 +33,6 @@
   "homepage": "https://github.com/Tellier-Neo/WorldPing#readme",
   "dependencies": {
     "node-notifier": "^10.0.1",
-    "pkg": "^5.8.1",
     "rss-parser": "^3.13.0",
     "yahoo-finance2": "^3.13.2"
   },
