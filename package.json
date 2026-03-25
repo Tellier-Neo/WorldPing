@@ -3,8 +3,16 @@
   "version": "1.0.0",
   "description": "World ping is an intelligent and ligh NODEJS script made to inform you about what's happening in the world with a quick popup on the bottom of your screen",
   "main": "index.js",
+  "bin": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "pkg . --targets node18-win-x64 --output dist/WorldPing.exe && copyfiles -u 2 node_modules/node-notifier/vendor/**/* dist/notifier/"
+  },
+  "pkg": {
+    "assets": [
+      "worldping.ico",
+      "node_modules/node-notifier/vendor/**/*"
+    ]
   },
   "repository": {
     "type": "git",
@@ -25,7 +33,11 @@
   "homepage": "https://github.com/Tellier-Neo/WorldPing#readme",
   "dependencies": {
     "node-notifier": "^10.0.1",
+    "pkg": "^5.8.1",
     "rss-parser": "^3.13.0",
     "yahoo-finance2": "^3.13.2"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
   }
 }
