@@ -1,0 +1,31 @@
+{
+  "name": "worldping",
+  "version": "1.0.0",
+  "description": "World ping is an intelligent and ligh NODEJS script made to inform you about what's happening in the world with a quick popup on the bottom of your screen",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tellier-Neo/WorldPing.git"
+  },
+  "keywords": [
+    "script",
+    "worldinfo",
+    "alert",
+    "economy",
+    "data"
+  ],
+  "author": "Blume Horizon",
+  "license": "SEE LICENSE IN \"LICENSE\"",
+  "bugs": {
+    "url": "https://github.com/Tellier-Neo/WorldPing/issues"
+  },
+  "homepage": "https://github.com/Tellier-Neo/WorldPing#readme",
+  "dependencies": {
+    "node-notifier": "^10.0.1",
+    "rss-parser": "^3.13.0",
+    "yahoo-finance2": "^3.13.2"
+  }
+}
