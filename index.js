@@ -12,52 +12,52 @@ const FinanceData = {
   XAUUSD: null,
 };
 
-//Fonction de recuperatins des prix des actifs financiers
+//Fonction de recuperation des prix des actifs financiers
 
 //Prix du Petrole Brent
 async function getBrentPrice() {
-  rawBrentData = await financeGet.quote("BZ=F");
-  BrentDataPrice = rawBrentData.regularMarketPrice;
+  let rawBrentData = await financeGet.quote("BZ=F");
+  let BrentDataPrice = rawBrentData.regularMarketPrice;
   FinanceData.brent = BrentDataPrice;
   console.log("Brent Price: " + FinanceData.brent);
 }
 
 //Prix du Bitcoin
 async function getBTCPrice() {
-  rawBTCData = await financeGet.quote("BTC-USD");
-  BTCDataPrice = rawBTCData.regularMarketPrice;
+  let rawBTCData = await financeGet.quote("BTC-USD");
+  let BTCDataPrice = rawBTCData.regularMarketPrice;
   FinanceData.btc = BTCDataPrice;
   console.log("BTC Price: " + FinanceData.btc);
 }
 
 //Prix de l'Ethereum
 async function getETHPrice() {
-  rawETHData = await financeGet.quote("ETH-USD");
-  ETHDataPrice = rawETHData.regularMarketPrice;
+  let rawETHData = await financeGet.quote("ETH-USD");
+  let ETHDataPrice = rawETHData.regularMarketPrice;
   FinanceData.eth = ETHDataPrice;
   console.log("ETH Price: " + FinanceData.eth);
 }
 
 //Prix du CAC40
 async function getCAC40Price() {
-  rawCAC40Data = await financeGet.quote("^FCHI");
-  CAC40DataPrice = rawCAC40Data.regularMarketPrice;
+  let rawCAC40Data = await financeGet.quote("^FCHI");
+  let CAC40DataPrice = rawCAC40Data.regularMarketPrice;
   FinanceData.cac40 = CAC40DataPrice;
   console.log("CAC40 Price: " + FinanceData.cac40);
 }
 
 //Prix du NASDAQ
 async function getNASDAQPrice() {
-  rawNASDAQData = await financeGet.quote("^IXIC");
-  NASDAQDataPrice = rawNASDAQData.regularMarketPrice;
+  let rawNASDAQData = await financeGet.quote("^IXIC");
+  let NASDAQDataPrice = rawNASDAQData.regularMarketPrice;
   FinanceData.NASDAQ = NASDAQDataPrice;
   console.log("NASDAQ Price: " + FinanceData.NASDAQ);
 }
 
 //Prix de l'Or
 async function getXAUUSDPrice() {
-  rawXAUUSDData = await financeGet.quote("GC=F");
-  XAUUSDDataPrice = rawXAUUSDData.regularMarketPrice;
+  let rawXAUUSDData = await financeGet.quote("GC=F");
+  let XAUUSDDataPrice = rawXAUUSDData.regularMarketPrice;
   FinanceData.XAUUSD = XAUUSDDataPrice;
   console.log("XAUUSD Price: " + FinanceData.XAUUSD);
 }
@@ -68,7 +68,7 @@ const Parser = require("rss-parser");
 const newsParser = new Parser();
 
 //Temp News GUID Storage
-const GUIDLst = [];
+const GuidLastID = null;
 
 //Section News mondiales //
 const BBClastWorldNews = {
@@ -83,11 +83,13 @@ async function getBBCWorldNews() {
     "https://feeds.bbci.co.uk/news/world/rss.xml",
   );
   const worldNews = feed.items[0];
-  if (worldNews.guid != GUIDLst[0]) {
-    BBClastWorldNews.title = worldNews.title;
-    BBClastWorldNews.link = worldNews.link;
-    BBClastWorldNews.pubDate = worldNews.pubDate;
-    GUIDLst.unshift(worldNews.guid);
+  if (worldNews.guid !== GuidLastID) {
+    let BBClastWorldNews = {
+      title: worldNews.title,
+      link: worldNews.link,
+      pubDate: worldNews.pubDate,
+    };
+    GuidLastID = worldNews.guid;
     console.log("World News: " + BBClastWorldNews.title);
   } else {
     console.log("No new BBC World News");
