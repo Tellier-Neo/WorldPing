@@ -89,7 +89,7 @@ async function getBBCWorldNews() {
       link: worldNews.link,
       pubDate: worldNews.pubDate,
     };
-    GuidLastID = worldNews.guid;
+    const GuidLastID = worldNews.guid;
     console.log("World News: " + BBClastWorldNews.title);
   } else {
     console.log("No new BBC World News");
